@@ -1,0 +1,10 @@
+<%= form_for @game do |f| %>
+  <%= f.label :title %><%= f.text_field :title %> <br/>
+  <%= f.label :start %><%= f.date_select :start %><br/>
+  <%= f.label :entries_close %><%= f.date_select :entries_close %><br/>
+  <%= f.label :finish %><%= f.date_select :finish %><br/>
+  <%= f.submit "Create Game" %>
+<% end %>
+
+<%= link_to "Back", root_path %>
+      

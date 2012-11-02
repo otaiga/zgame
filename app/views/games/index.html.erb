@@ -1,0 +1,31 @@
+<h1> Zombie Game </h1>
+
+<% if @games.empty? %>
+  <p> You don't seem to have any games setup. <%= link_to "Create a new game", new_game_path %> </p>
+<% else %>
+    <p>Your Game details</p>
+    <table class="table table-striped">
+      <tr>
+        <th>Title</th>
+        <th>Start</th>
+        <th>Finish</th>
+        <th>Entires In By</th>
+        <th>Players</th>
+        <th>Action</th>
+      </tr>
+      <% @games.each do |game| %>
+      <tr>
+        <td><%= link_to game.title, game_path(game.id) %></td>
+        <td><%= game.start.strftime("%a #{game.start.day.ordinalize} %b") %></td>
+        <td><%= game.finish.strftime("%a #{game.finish.day.ordinalize} %b") %></td>
+        <td><%= game.entries_close.strftime("%a #{game.entries_close.day.ordinalize} %b") %></td>
+        <td><%= game.players.count %></td>
+        <td><%= link_to "x", game_path(game.id), :method => "delete" %></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <article>
+      <%= link_to "Create a new game", new_game_path %>
+    </article>
+<% end %>

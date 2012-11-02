@@ -1,0 +1,33 @@
+<h1><%= @game.title %></h1>
+<section>
+  <article>
+    <ul>
+      <li>Start: <%=@game.start.strftime("%a #{@game.start.day.ordinalize} %b")%></li>
+      <li>Finish: <%=@game.finish.strftime("%a #{@game.finish.day.ordinalize} %b") %></li>
+      <li>Entries in by: <%=@game.entries_close.strftime("%a #{@game.entries_close.day.ordinalize} %b") %></li>
+      <li>Players: <%=@game.players.count %></li>
+    </ul>
+  </article>
+  <article>
+    <h2>Players</h2>
+    <% if @game.players.empty? %>
+      <p>You dont have any players yet, go get some! <%= link_to "Add/invite player", new_game_player_path(@game.id)%></p>
+    <% else %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+        <% @game.players.each do |player| %>
+        <tr>
+          <td><%=player.name %></td>
+          <td><%=player.email %></td>
+          <td><%=player.role %></td>
+        </tr>
+        <%end%>
+      </table>
+    <% end %>
+  </article>
+  <%= link_to "back", root_path %>
+</section>
