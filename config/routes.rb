@@ -7,4 +7,6 @@ Zgame::Application.routes.draw do
     resources :players
   end
 
+  # Join a game via key
+  get "/join/:game_key" => "joins#new"
 end

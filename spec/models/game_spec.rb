@@ -24,4 +24,18 @@ describe Game do
     game.players.create!(name: "test_user", email: "test_user@example.com")
     expect { game.destroy }.to change(Player, :count).by(-1)
   end
+
+  it "should be unique titles" do
+    game = given_game(given_user)
+    game.reload
+    game2 = given_user.games.new(title: game.title, start: DateTime.now, finish: DateTime.now, entries_close: DateTime.now)
+    game2.save.should == false
+    game2.errors.full_messages.should == ["Title has already been taken"]
+  end
+
+  it "should generate a key for the game" do
+    game = given_game(given_user)
+    game.game_key.should_not == nil
+  end
+
 end
