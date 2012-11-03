@@ -21,7 +21,7 @@ private
   end
 
   def self.find_all_by_user_participation(user_email)
-    Game.joins(:players).where('players.email'=> user_email)
+    self.joins(:players).where('players.email'=> user_email)
   end
 
   def include_user_player

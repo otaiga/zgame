@@ -1,21 +1,40 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="span6">
+    <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <!-- start slipsum code -->
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends. </p>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+    <!-- please do not remove this line -->
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <div style="display:none;">
+    <a href="http://slipsum.com">lorem ipsum</a></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <!-- end slipsum code -->
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= render "devise/shared/links" %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+
+      <div><%= f.label :username %><br />
+      <%= f.text_field :username %></div>
+
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
+
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
+
+      <div><%= f.submit "Sign up" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+
+  <div class="span3">
+    <%= image_tag "zombie4.png", :class => "img-rounded"%>
+  </div>
+</div>

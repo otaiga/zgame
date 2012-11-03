@@ -1,9 +1,19 @@
-<h1>Join : <%= @game.title %></h1>
+<h1>Join : <%= @game.title %>?</h1>
+<h3>Owner: <%= @game.user.username %></h3>
+<section>
+  <article>
+    <ul>
+      <li>Start: <%=@game.start.strftime("%a #{@game.start.day.ordinalize} %b")%></li>
+      <li>Finish: <%=@game.finish.strftime("%a #{@game.finish.day.ordinalize} %b") %></li>
+      <li>Entries in by: <%=@game.entries_close.strftime("%a #{@game.entries_close.day.ordinalize} %b") %></li>
+      <li>Players: <%=@game.players.count %></li>
+    </ul>
+  </article>
 
 <section>
   <%= form_for @player, :url => game_players_path(@game) do |f| %>
-    <%= f.label :name %><%= f.text_field :name %>
-    <%= f.label :email %><%= f.email_field :email %><br/>
+    Your Name: <%= @player.name %><br/>
+    Your Email: <%= @player.email %><br/><br/>
     <%= f.submit "Join" %>
   <% end %>
 </section>
