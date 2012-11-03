@@ -2,11 +2,15 @@ class GamesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @games = current_user.games
+    @games = Game.find_all_by_user_participation(current_user.email)
   end
 
   def show
-    @game = current_user.games.find(params[:id])
+    if params[:game_key]
+      @game = Game.find_by_game_key(params[:game_key])
+    else
+      @game = current_user.games.find(params[:id])
+    end
     redirect_to root_path unless @game
   end
 

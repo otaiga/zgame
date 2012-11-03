@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  after_create :add_game_key
+  after_create :add_game_key, :include_user_player
 
   attr_accessible :title, :start, :finish, :entries_close, :game_key
 
@@ -18,6 +18,14 @@ private
 
   def generated_key
     Digest::SHA1.hexdigest(Time.now.to_s + self.id.to_s)
+  end
+
+  def self.find_all_by_user_participation(user_email)
+    Game.joins(:players).where('players.email'=> user_email)
+  end
+
+  def include_user_player
+    self.players.create(name: self.user.username, email: self.user.email)
   end
   
 end

@@ -1,5 +1,9 @@
 <h1>Join : <%= @game.title %></h1>
 
 <section>
-Will add something here to join the game.
+  <%= form_for @player, :url => game_players_path(@game) do |f| %>
+    <%= f.label :name %><%= f.text_field :name %>
+    <%= f.label :email %><%= f.email_field :email %><br/>
+    <%= f.submit "Join" %>
+  <% end %>
 </section>

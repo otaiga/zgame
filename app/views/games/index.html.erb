@@ -24,20 +24,27 @@
         <th>Finish</th>
         <th>Entires In By</th>
         <th>Players</th>
+        <th>Owner</th>
         <th>Action</th>
       </tr>
       <% @games.each do |game| %>
       <tr>
+        <% if owner?(game)%>
         <td><%= link_to game.title, game_path(game.id) %></td>
+        <%else%>
+        <td><%= link_to game.title, game_path(game.id, game_key: game.game_key) %></td>
+        <%end%>
         <td><%= game.start.strftime("%a #{game.start.day.ordinalize} %b") %></td>
         <td><%= game.finish.strftime("%a #{game.finish.day.ordinalize} %b") %></td>
         <td><%= game.entries_close.strftime("%a #{game.entries_close.day.ordinalize} %b") %></td>
         <td><%= game.players.count %></td>
-        <td><%= link_to "x", game_path(game.id), :method => "delete" %></td>
+        <td><% if owner?(game)%> you <% else %> <%= game.user.username %> <% end %>
+        <td><%= link_to "x", game_path(game.id), :method => "delete" if owner?(game) %></td>
       </tr>
       <% end %>
     </table>
+    <% end %>
+
     <%= link_to "Create a new game", new_game_path %>
   </article>
 </section>
-<% end %>

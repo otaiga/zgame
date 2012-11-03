@@ -3,7 +3,7 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
       t.string :name
       t.string :email
-      t.string :role
+      t.string :role, :default => "unknown"
       t.integer :game_id, :default => nil
       
       t.timestamps
