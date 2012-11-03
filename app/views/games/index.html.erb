@@ -1,9 +1,22 @@
-<h1> Zombie Game </h1>
+<section>
+  <h1> Zombie Game </h1>
+  <article>
+    <!-- start slipsum code -->
 
-<% if @games.empty? %>
-  <p> You don't seem to have any games setup. <%= link_to "Create a new game", new_game_path %> </p>
-<% else %>
-    <p>Your Game details</p>
+    <p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee. </p>
+
+    <!-- please do not remove this line -->
+
+    <div style="display:none;">
+    <a href="http://slipsum.com">lorem ipsum</a></div>
+
+    <!-- end slipsum code -->
+  </article>
+  <article>
+  <% if @games.empty? %>
+    <p> You don't seem to have any games setup. <%= link_to "Create a new game", new_game_path %> </p>
+  <% else %>
+    <h3>Your Game details</h3>
     <table class="table table-striped">
       <tr>
         <th>Title</th>
@@ -24,8 +37,7 @@
       </tr>
       <% end %>
     </table>
-
-    <article>
-      <%= link_to "Create a new game", new_game_path %>
-    </article>
+    <%= link_to "Create a new game", new_game_path %>
+  </article>
+</section>
 <% end %>
