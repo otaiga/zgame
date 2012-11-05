@@ -9,4 +9,7 @@ Zgame::Application.routes.draw do
 
   # Join a game via key
   get "/join/:game_key" => "joins#new"
+
+  #update caught status of player
+  post "/caught" => "players#caught"
 end

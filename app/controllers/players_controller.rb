@@ -16,4 +16,13 @@ class PlayersController < ApplicationController
     end
   end
 
+  def caught
+    player = Player.find_by_email(current_user.email)
+    player.update_attributes(role: "zombie") if player
+    respond_to do |format|
+      format.js
+      format.html {redirect_to game_path(params[:game_id])}
+    end
+  end
+
 end

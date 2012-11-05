@@ -23,6 +23,7 @@
           <div class="thumbnail">
             <p><%= player.name %></p>
             <p>Role: <%=player.role %></p>
+            <% if is_user?(player) %><%= link_to "CAUGHT", caught_path(:game_id => @game), :method => :post %><% end %>
           </div>
         </li>
         <%end%>
