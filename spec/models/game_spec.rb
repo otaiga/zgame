@@ -22,7 +22,8 @@ describe Game do
   it "should destroy players if game is destroyed" do
     game = given_game(given_user)
     game.players.create!(name: "test_user", email: "test_user@example.com")
-    expect { game.destroy }.to change(Player, :count).by(-1)
+    game.reload
+    expect { game.destroy }.to change(Player, :count).by(-2)
   end
 
   it "should be unique titles" do
