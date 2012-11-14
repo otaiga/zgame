@@ -1,5 +1,6 @@
 Zgame.Views.PlayersIndex = Backbone.View.extend({
   tagName: 'ul',
+  className: 'thumbnails',
   id: 'players',
 
   render: function() {
@@ -9,7 +10,6 @@ Zgame.Views.PlayersIndex = Backbone.View.extend({
 
   addOne: function(player) {
     var playerView = new Zgame.Views.Player({ model: player });
-    console.log(player);
     this.$el.append(playerView.render().el);
   },
 
