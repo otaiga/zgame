@@ -11,8 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require ./zgame/zgame
-//= require_tree ./zgame/helpers
+//= require_tree ./zgame/templates
 //= require_tree ./zgame/models
 //= require_tree ./zgame/views
-//= require_tree ./zgame/templates/
+//= require_tree ./zgame/collections
+//= require_tree ./zgame/routers
 //= require_tree ./zgame

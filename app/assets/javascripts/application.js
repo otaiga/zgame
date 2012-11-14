@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require zgame
 //= require twitter/bootstrap
 //= require_tree .

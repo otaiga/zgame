@@ -17,16 +17,7 @@
       <p>You dont have any players yet, go get some! <%= link_to "Add/invite player", new_game_player_path(@game.id)%></p>
     <% else %>
       <ul class='thumbnails', id="players">
-      <% @game.players.each do |player| %>
-        <li id=<%=player.id%>>
-          <img class="img-rounded" src="http://robohash.org/<%= player.name %>.jpg?size=150x150&bgset=bg2&set=set3" alt="" />
-          <div class="thumbnail">
-            <p><%= player.name %></p>
-            <p>Role: <%=player.role %></p>
-            <% if is_user?(player) %><%= link_to "CAUGHT", caught_path(:game_id => @game), :method => :post %><% end %>
-          </div>
-        </li>
-        <%end%>
+        <li>Loading....</li>
       </ul>
     <% end %>
     <%= link_to "Add/invite player", new_game_player_path(@game.id)%></p>
