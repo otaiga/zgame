@@ -2,8 +2,6 @@ Zgame::Application.routes.draw do
   devise_for :users
 
   root :to => 'mains#index'
-
-  resources :players
   resources :games do
     resources :players
   end
