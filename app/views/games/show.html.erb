@@ -20,7 +20,7 @@
         <li>Loading....</li>
       </ul>
     <% end %>
-    <%= link_to "Add/invite player", players_path(@game.id)%></p>
+    <%= link_to "Add/invite player", game_players_path(@game.id)%></p>
   </article>
   <%= link_to "back", root_path %>
 </section>

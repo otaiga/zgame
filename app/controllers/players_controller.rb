@@ -5,6 +5,7 @@ class PlayersController < ApplicationController
   def index
     #only want to display usernames for linking into a game
     @player_names = User.all.map {|user| user.username}
+    @game_id = current_user.games.find(params[:game_id])
   end
 
   def new

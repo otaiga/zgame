@@ -1,3 +1,3 @@
 class Invite < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :from_user_id, :game_id
 end

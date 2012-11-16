@@ -3,6 +3,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.find_all_by_user_participation(current_user.email)
+    @invites = current_user.invites
   end
 
   def show

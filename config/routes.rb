@@ -12,6 +12,5 @@ Zgame::Application.routes.draw do
   #update caught status of player
   post "/caught" => "players#caught"
 
-  #invite a user
-  post "/invites" => "invites#create"
+  resources :invites, :only => [:create, :update]
 end

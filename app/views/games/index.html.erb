@@ -43,8 +43,39 @@
       </tr>
       <% end %>
     </table>
-    <%= link_to "Create a new game", new_game_path %>
+    <%= link_to "Create a new game", new_game_path, :class => "btn" %>
     <% end %>
-
+  </article>
+  <article>
+    <% unless @invites.empty? %>
+    <div class="row">
+      <div class="span8">
+        <h3>Your invites to other games</h3>
+        <table class="table table-striped">
+          <tr>
+            <th>Title</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>Entires In By</th>
+            <th>From</th>
+            <th>Action</th>
+          </tr>
+          <% @invites.each do |invite| %>
+          <%gamedata = game_data(invite)%>
+          <%if gamedata%>
+              <tr>
+                <td><%= gamedata.title %></td>
+                <td><%= gamedata.start.strftime("%a #{gamedata.start.day.ordinalize} %b") %></td>
+                <td><%= gamedata.finish.strftime("%a #{gamedata.finish.day.ordinalize} %b") %></td>
+                <td><%= gamedata.entries_close.strftime("%a #{gamedata.entries_close.day.ordinalize} %b") %></td>
+                <td><%= get_user_name(invite.from_user_id) %></td>
+                <td><%= link_to "accept", invite_path(invite.id), :class => "btn", :method => "put" %><%= link_to "decline", invites_path(invite.id), :class => "btn", :method => "delete" %></td>
+              </tr>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </table>
+    <% end %>
   </article>
 </section>
