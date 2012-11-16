@@ -3,6 +3,10 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.find_all_by_user_participation(current_user.email)
+    respond_to do | format|
+      format.html
+      format.json {render json: @games}
+    end
   end
 
   def show
