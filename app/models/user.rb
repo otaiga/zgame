@@ -9,5 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :username
 
+  validates_uniqueness_of :username
+
   has_many :games
+  has_many :invites
 end

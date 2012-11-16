@@ -1,6 +1,12 @@
 class PlayersController < ApplicationController
   before_filter :authenticate_user!
 
+#Creating an index of players on the server (should be able to search via location? - amend to user profile?)
+  def index
+    #only want to display usernames for linking into a game
+    @player_names = User.all.map {|user| user.username}
+  end
+
   def new
     @player = current_user.games.find(params[:game_id]).players.new
     @game_id = params[:game_id]

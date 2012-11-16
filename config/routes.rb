@@ -3,6 +3,7 @@ Zgame::Application.routes.draw do
 
   root :to => 'mains#index'
 
+  resources :players
   resources :games do
     resources :players
   end
@@ -12,4 +13,7 @@ Zgame::Application.routes.draw do
 
   #update caught status of player
   post "/caught" => "players#caught"
+
+  #invite a user
+  post "/invites" => "invites#create"
 end

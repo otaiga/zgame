@@ -1,0 +1,10 @@
+<h1>Players available</h1>
+
+<section>
+  <%@player_names.each do |player| %>
+    <!-- Don't want to see my name in there :D -->
+    <%unless player == current_user.username%>
+      <li><%=player%> <%=link_to "invite", invites_path, :class => "btn", :method => :post %></li>
+    <% end %>
+  <% end %>
+</section>

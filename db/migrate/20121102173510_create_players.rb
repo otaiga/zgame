@@ -5,6 +5,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :email
       t.string :role, :default => "unknown"
       t.integer :game_id, :default => nil
+      #Player is a user so will have a user ID.
+      t.integer :user_id, :default => nil
       
       t.timestamps
     end

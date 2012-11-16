@@ -25,7 +25,7 @@ private
   end
 
   def include_user_player
-    self.players.create(name: self.user.username, email: self.user.email)
+    self.players.create(name: self.user.username, email: self.user.email, user_id: self.user.id)
   end
   
 end
