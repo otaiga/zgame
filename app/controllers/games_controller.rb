@@ -31,6 +31,8 @@ class GamesController < ApplicationController
 
   def destroy
     @game = current_user.games.find(params[:id])
+    #remove all invites to users for this game
+    Invite.remove_all_invites_for_game(@game.id)
     if @game.destroy
       redirect_to root_path, :notice => "Game Deleted"
     else
